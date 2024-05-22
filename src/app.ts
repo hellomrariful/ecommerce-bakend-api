@@ -9,29 +9,19 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-/**
- *
- * core api routes
- *
- */
+//products and orders API
 app.use("/api/products", productRoute);
 app.use("/api/orders", orderRoute);
 
-/**
- * Health route
- */
+//Health route
 app.get("/", (req: Request, res: Response) => {
   res.status(200).json({
     success: true,
-    message: "Health route",
+    message: "Main route",
   });
 });
 
-/**
- *
- * Rest of the route that return an error
- *
- */
+//not found route
 app.get("*", (req: Request, res: Response) => {
   res.status(500).json({
     success: false,
@@ -39,12 +29,7 @@ app.get("*", (req: Request, res: Response) => {
   });
 });
 
-/**
- *
- * error middleware when any route will call next
- * then this error will work
- *
- */
+//middleware with next
 app.use((error: any, req: Request, res: Response, next: NextFunction) => {
   const statusCode = error.statusCode || 500;
   const message = error.message || "Internal Server Error";

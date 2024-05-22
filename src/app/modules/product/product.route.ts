@@ -8,7 +8,6 @@ import {
 } from "./product.controller";
 const route = express.Router();
 
-
 //create product api
 route.post("/", createProduct);
 
