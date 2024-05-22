@@ -1,4 +1,4 @@
-# Ecommerce Backend Server
+# E-Commerce API
 
 ## Live Link
 
@@ -11,10 +11,7 @@
 - Mongodb
 - Mongoose
 
-## Challenges
-- 
-
-## How to Run Locally
+## Instructions to run the application locally
 1. Clone or Download the repository.
 2. Install dependencies using `npm install`.
 3. Configure environment variables for MongoDB and Port.

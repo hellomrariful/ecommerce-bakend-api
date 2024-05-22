@@ -71,7 +71,7 @@ export const searchOrders = async (
     //not found order
     if (!data || !data?.length) {
       return res.status(200).json({
-        success: true,
+        success: false,
         message: "Order not found",
       });
     }

@@ -11,7 +11,7 @@ const bootstrap = async () => {
       console.log(`server is running on port ${PORT}`);
     });
   } catch (err) {
-    console.log(err);
+    console.log("Failed to connect to MongoDB", err);
   }
 };
 bootstrap();
