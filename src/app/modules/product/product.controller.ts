@@ -55,7 +55,7 @@ export const searchProduct = async (
   }
 };
 
-//single product controller
+//single product
 export const specificProduct = async (
   req: Request,
   res: Response,
@@ -72,11 +72,18 @@ export const specificProduct = async (
     });
   } catch (error) {
     //searching error by productId
-    return next(error);
+    if (error instanceof Error && error.name === "CastError") {
+      res.status(200).json({
+        success: true,
+        message: "Product Not Found!",
+      });
+    } else {
+      return next(error);
+    }
   }
 };
 
-//update product controller
+//update product
 export const updateProduct = async (
   req: Request,
   res: Response,
