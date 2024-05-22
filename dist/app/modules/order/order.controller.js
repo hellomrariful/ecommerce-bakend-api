@@ -73,7 +73,7 @@ const searchOrders = (req, res, next) => __awaiter(void 0, void 0, void 0, funct
         }
         //orders found
         return res.status(200).json({
-            success: false,
+            success: true,
             message: email
                 ? "Orders fetched successfully for user email!"
                 : "Orders fetched successfully!",

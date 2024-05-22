@@ -56,7 +56,7 @@ const searchProduct = (req, res, next) => __awaiter(void 0, void 0, void 0, func
     }
 });
 exports.searchProduct = searchProduct;
-//single product controller
+//single product
 const specificProduct = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const { productId } = req.params;
     try {
@@ -69,11 +69,19 @@ const specificProduct = (req, res, next) => __awaiter(void 0, void 0, void 0, fu
     }
     catch (error) {
         //searching error by productId
-        return next(error);
+        if (error instanceof Error && error.name === "CastError") {
+            res.status(200).json({
+                success: false,
+                message: "Product Not Found!",
+            });
+        }
+        else {
+            return next(error);
+        }
     }
 });
 exports.specificProduct = specificProduct;
-//update product controller
+//update product
 const updateProduct = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const { productId } = req.params;
     const dataToUpdate = req.body;
