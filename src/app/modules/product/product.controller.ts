@@ -74,7 +74,7 @@ export const specificProduct = async (
     //searching error by productId
     if (error instanceof Error && error.name === "CastError") {
       res.status(200).json({
-        success: true,
+        success: false,
         message: "Product Not Found!",
       });
     } else {

@@ -78,7 +78,7 @@ export const searchOrders = async (
 
     //orders found
     return res.status(200).json({
-      success: false,
+      success: true,
       message: email
         ? "Orders fetched successfully for user email!"
         : "Orders fetched successfully!",
