@@ -4,12 +4,8 @@ import cors from "cors";
 import { productRoute } from "./app/modules/product/product.route";
 import { orderRoute } from "./app/modules/order/order.route";
 
-/**
- *
- * application-level middleware
- * that will work for all routes
- *
- */
+
+// parsers
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
