@@ -2,7 +2,7 @@
 
 ## Live Link
 
-   [Server Live]()
+   [Server Live](https://ecommerce-bakend-api.vercel.app/)
 
 ## Technologies Used
 - Typescript
