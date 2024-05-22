@@ -2,9 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import { productSchemaValidator } from "./schema.validation.zod";
 import { ProductServices } from "./product.services";
 
-/**
- * create product controller
- */
+//product controller here
 export const createProduct = async (
   req: Request,
   res: Response,
@@ -13,27 +11,25 @@ export const createProduct = async (
   const productData = req.body;
 
   try {
-    /* verifing product schema using zod */
+    //using zod to validate
     const product = productSchemaValidator.parse(productData);
 
-    /* creating new product */
+    //new product created
     const createdProduct = await ProductServices.createProductDB(product);
 
-    /* if product created */
+    //product created successfully
     res.status(201).json({
       success: true,
       message: "Product created successfully!",
       data: createdProduct,
     });
   } catch (error) {
-    /* if product creation failed */
+    //product creation failed
     return next(error);
   }
 };
 
-/**
- * search product controller
- */
+//search product
 export const searchProduct = async (
   req: Request,
   res: Response,
@@ -54,14 +50,12 @@ export const searchProduct = async (
       data,
     });
   } catch (error) {
-    /* if any error while searching product */
+    //searching error
     return next(error);
   }
 };
 
-/**
- * specific product controller
- */
+//single product controller
 export const specificProduct = async (
   req: Request,
   res: Response,
@@ -77,14 +71,12 @@ export const specificProduct = async (
       data,
     });
   } catch (error) {
-    /* if any error while searching by productId */
+    //searching error by productId
     return next(error);
   }
 };
 
-/**
- * update product controller
- */
+//update product controller
 export const updateProduct = async (
   req: Request,
   res: Response,
@@ -93,7 +85,7 @@ export const updateProduct = async (
   const { productId } = req.params;
   const dataToUpdate = req.body;
   try {
-    /* updating product  */
+    //product updated
     const data = await ProductServices.updateProductByIdDB(
       productId,
       dataToUpdate,
@@ -105,14 +97,12 @@ export const updateProduct = async (
       data,
     });
   } catch (error) {
-    /* if any error while updating product  */
+    //product updating error
     return next(error);
   }
 };
 
-/**
- * delete product controller
- */
+//delete product
 export const deleteProduct = async (
   req: Request,
   res: Response,
@@ -130,7 +120,7 @@ export const deleteProduct = async (
       data: null,
     });
   } catch (error) {
-    /* if any error while deleting product  */
+    //product deleting error
     return next(error);
   }
 };
