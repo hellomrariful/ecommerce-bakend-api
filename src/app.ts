@@ -4,7 +4,6 @@ import cors from "cors";
 import { productRoute } from "./app/modules/product/product.route";
 import { orderRoute } from "./app/modules/order/order.route";
 
-
 // parsers
 app.use(cors());
 app.use(express.json());
