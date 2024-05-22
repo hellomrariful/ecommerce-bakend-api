@@ -15,11 +15,11 @@ app.use(express_1.default.urlencoded({ extended: true }));
 //products and orders API
 app.use("/api/products", product_route_1.productRoute);
 app.use("/api/orders", order_route_1.orderRoute);
-//Health route
+//Main route
 app.get("/", (req, res) => {
     res.status(200).json({
         success: true,
-        message: "Main route",
+        message: "Welcome to the E-Commerce API Server!",
     });
 });
 //not found route
