@@ -13,11 +13,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/products", productRoute);
 app.use("/api/orders", orderRoute);
 
-//Health route
+//Main route
 app.get("/", (req: Request, res: Response) => {
   res.status(200).json({
     success: true,
-    message: "Main route",
+    message: "Welcome to the E-Commerce API Server!",
   });
 });
 
